@@ -511,7 +511,7 @@ if __name__ == '__main__':
     serviceRun.set_cifs(os.getenv('CIFS_ENABLED', 'true'), os.getenv('CIFS_SERVER_NAME', 'localhost'), os.getenv('CIFS_DOMAIN', 'WORKGROUP'))
 
     # We set LDAP
-    serviceRun.set_ldap(os.getenv('LDAP_ENABLED', 'false'), os.getenv('LDAP_AUTH_FORMAT'), os.getenv('LDAP_HOST'), os.getenv('LDAP_USER'), os.getenv('LDAP_PASSWORD'), os.getenv('LDAP_ADMINS'), os.getenv('LDAP_GROUP_SEARCHBASE'), os.getenv('LDAP_USER_SEARCHBASE'), os.getenv('GROUP_QUERY','(objectClass\=posixGroup)'), os.getenv('GROUP_DIFFERENTIAL_QUERY','(&(objectClass\=posixGroup)(!(modifyTimeStamp\<\={0})))'),os.getenv('PERSON_QUERY','(objectClass\=inetOrgPerson)'), os.getenv('PERSON_DIFFERENTIAL_QUERY','(&(objectClass\=inetOrgPerson)(!(modifyTimeStamp\<\={0})))'))
+    serviceRun.set_ldap(os.getenv('LDAP_ENABLED', 'false'), os.getenv('LDAP_AUTH_FORMAT'), os.getenv('LDAP_HOST'), os.getenv('LDAP_USER'), os.getenv('LDAP_PASSWORD'), os.getenv('LDAP_ADMINS'), os.getenv('LDAP_GROUP_SEARCHBASE'), os.getenv('LDAP_USER_SEARCHBASE'), os.getenv('LDAP_GROUP_QUERY','(objectClass\=posixGroup)'), os.getenv('LDAP_DIFFERENTIAL_GROUP_QUERY','(&(objectClass\=posixGroup)(!(modifyTimeStamp\<\={0})))'),os.getenv('LDAP_PERSON_QUERY','(objectClass\=inetOrgPerson)'), os.getenv('LDAP_DIFFERENTIAL_PERSON_QUERY','(&(objectClass\=inetOrgPerson)(!(modifyTimeStamp\<\={0})))'))
 
     # Reverse Proxy
     if os.getenv('REVERSE_PROXY_URL') is not None:
