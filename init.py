@@ -45,8 +45,8 @@ class ServiceRun():
 
       db_conn_params = ""
       if db_type == "mysql":
-          db_conn_params = "?useSSL=false"
-          db_driver = "org.gjt.mm.mysql.Driver"
+          db_conn_params = "?useSSL=false&useUnicode=true&characterEncoding=utf8"
+          db_driver = "com.mysql.jdbc.Driver"
       else:
           db_driver = "org.postgresql.Driver"
 
