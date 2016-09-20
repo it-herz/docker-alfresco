@@ -185,7 +185,7 @@ class ServiceRun():
           self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', '^#.cifs.broadcast\s*=', '#cifs.broadcast=')
           self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', '^#.cifs.ipv6.enabled\s*=', '#cifs.ipv6.enabled=')
 
-  def set_ldap(self, enable, auth_format, host, user, password, list_admins, search_base_group, search_base_user, group_query, differential_group_query, person_query, differential_person_query):
+  def set_ldap(self, enable, auth_format, host, user, password, list_admins, search_base_group, search_base_user, group_query, group_differential_query, person_query, person_differential_query):
       global ALFRESCO_PATH
 
       if enable == "true":
