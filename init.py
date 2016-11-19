@@ -468,10 +468,13 @@ class ServiceRun():
         myFile.write("\n" + line + "\n")
 
   def apply_modules(self):
-    os.system("/opt/alfresco/java/bin/java -jar /opt/alfresco/bin/alfresco-mmt.jar install /opt/alfresco/amps /opt/alfresco/tomcat/webapps/alfresco.war -directory $*")
-    os.system("/opt/alfresco/java/bin/java -jar /opt/alfresco/bin/alfresco-mmt.jar install /opt/alfresco/amps_share /opt/alfresco/tomcat/webapps/share.war -directory $*")
-    shutil.rmtree('/opt/alfresco/tomcat/webapps/alfresco')
-    shutil.rmtree('/opt/alfresco/tomcat/webapps/share')
+    global ALFRESCO_PATH
+    os.system(ALFRESCO_PATH+"/java/bin/java -jar "+ALFRESCO_PATH+"/bin/alfresco-mmt.jar install "+ALFRESCO_PATH+"/amps "+ALFRESCO_PATH+"/tomcat/webapps/alfresco.war -directory $*")
+    os.system(ALFRESCO_PATH+"/java/bin/java -jar "+ALFRESCO_PATH+"/bin/alfresco-mmt.jar install "+ALFRESCO_PATH+"/amps_share "+ALFRESCO_PATH+"/tomcat/webapps/share.war -directory $*")
+    if os.path.isdir(ALFRESCO_PATH+"/tomcat/webapps/alfresco"):
+      shutil.rmtree(ALFRESCO_PATH+"/tomcat/webapps/alfresco")
+    if os.path.isdir(ALFRESCO_PATH+"/tomcat/webapps/share"):
+      shutil.rmtree(ALFRESCO_PATH+"/tomcat/webapps/share")
     z = zipfile.ZipFile('/opt/alfresco/tomcat/webapps/alfresco.war')
     z.extractall('/opt/alfresco/tomcat/webapps/alfresco')
 
