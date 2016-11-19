@@ -467,7 +467,7 @@ class ServiceRun():
     with open(file, "a") as myFile:
         myFile.write("\n" + line + "\n")
 
-   def apply_modules(self):
+  def apply_modules(self):
     os.system("/opt/alfresco/java/bin/java -jar /opt/alfresco/bin/alfresco-mmt.jar install /opt/alfresco/amps /opt/alfresco/tomcat/webapps/alfresco.war -directory $*")
     os.system("/opt/alfresco/java/bin/java -jar /opt/alfresco/bin/alfresco-mmt.jar install /opt/alfresco/amps_share /opt/alfresco/tomcat/webapps/share.war -directory $*")
     shutil.rmtree('/opt/alfresco/tomcat/webapps/alfresco')
