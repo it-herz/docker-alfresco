@@ -453,10 +453,10 @@ class ServiceRun():
     
     for theme_name in os.listdir(ALFRESCO_PATH+"/tomcat/webapps/share/themes"):
       if not theme_name.startswith('.'):
-        if "dark" in theme_name:
-          os.copy(dark_logo,ALFRESCO_PATH+"/tomcat/webapps/share/themes/"+theme_name+"/logo.png")
+        if "Black" in theme_name:
+          shutil.copy2(dark_logo,ALFRESCO_PATH+"/tomcat/webapps/share/themes/"+theme_name+"/images/logo.png")
         else:
-          os.copy(light_logo,ALFRESCO_PATH+"/tomcat/webapps/share/themes/"+theme_name+"/logo.png")
+          shutil.copy2(light_logo,ALFRESCO_PATH+"/tomcat/webapps/share/themes/"+theme_name+"/images/logo.png")
 
   def add_end_file(self, file, line):
     """ Add line at the end of file
