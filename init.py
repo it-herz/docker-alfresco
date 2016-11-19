@@ -447,7 +447,16 @@ class ServiceRun():
 
     if is_create is True and is_found is False:
         self.add_end_file(file, replaceExp)
-
+        
+  def apply_logo(self, light_logo, dark_logo):
+    global ALFRESCO_PATH
+    
+    for theme_name in os.listdir(ALFRESCO_PATH+"/tomcat/webapps/share/themes"):
+      if not theme_name.startswith('.'):
+        if "dark" in theme_name:
+          os.copy(dark_logo,ALFRESCO_PATH+"/tomcat/webapps/share/themes/"+theme_name+"/logo.png")
+        else:
+          os.copy(light_logo,ALFRESCO_PATH+"/tomcat/webapps/share/themes/"+theme_name+"/logo.png")
 
   def add_end_file(self, file, line):
     """ Add line at the end of file
@@ -519,3 +528,6 @@ if __name__ == '__main__':
 
     # We set vti
     serviceRun.set_vti_setting(os.getenv('VTI_HOST'), os.getenv('VTI_PORT'))
+    
+    # Apply logo for all themes
+    serviceRun.apply_logo('/etc/light_logo.png','/etc/dark_logo.png')
