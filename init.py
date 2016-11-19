@@ -467,10 +467,16 @@ class ServiceRun():
     with open(file, "a") as myFile:
         myFile.write("\n" + line + "\n")
 
+   def apply_modules(self):
+    os.system("/opt/alfresco/java/bin/java -jar /opt/alfresco/bin/alfresco-mmt.jar install /opt/alfresco/amps /opt/alfresco/tomcat/webapps/alfresco.war -directory $*")
+    os.system("/opt/alfresco/java/bin/java -jar /opt/alfresco/bin/alfresco-mmt.jar install /opt/alfresco/amps_share /opt/alfresco/tomcat/webapps/share.war -directory $*")
+    shutil.rmtree('/opt/alfresco/tomcat/webapps/alfresco')
+    shutil.rmtree('/opt/alfresco/tomcat/webapps/share')
+    z = zipfile.ZipFile('/opt/alfresco/tomcat/webapps/alfresco.war')
+    z.extractall('/opt/alfresco/tomcat/webapps/alfresco')
 
-
-
-
+    z = zipfile.ZipFile('/opt/alfresco/tomcat/webapps/share.war')
+    z.extractall('/opt/alfresco/tomcat/webapps/share')
 
 if __name__ == '__main__':
 
@@ -528,6 +534,9 @@ if __name__ == '__main__':
 
     # We set vti
     serviceRun.set_vti_setting(os.getenv('VTI_HOST'), os.getenv('VTI_PORT'))
+    
+    # Rebuild war with user amps
+    serviceRun.apply_modules()
     
     # Apply logo for all themes
     serviceRun.apply_logo('/etc/light_logo.png','/etc/dark_logo.png')
