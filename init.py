@@ -5,6 +5,7 @@ import re
 import shutil
 import sys
 import time
+import zipfile
 
 __author__ = 'Sebastien LANGOUREAUX'
 
