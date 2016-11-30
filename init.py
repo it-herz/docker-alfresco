@@ -522,7 +522,7 @@ if __name__ == '__main__':
     serviceRun.set_share_context(os.getenv('SHARE_HOSTNAME', '127.0.0.1'), os.getenv('SHARE_PORT', '8080'), os.getenv('SHARE_PROTOCOL', 'http'))
 
     # We set ftp
-    serviceRun.set_ftp(os.getenv('FTP_ENABLED', 'true'), os.getenv('FTP_PORT', '21'), os.getenv('FTP_PORT_FROM', 1024), os.getenv('FTP_PORT_TO',1099), os.getenv('FTP_DEBUG','false')
+    serviceRun.set_ftp(os.getenv('FTP_ENABLED', 'true'), os.getenv('FTP_PORT', '21'), os.getenv('FTP_PORT_FROM', 1024), os.getenv('FTP_PORT_TO',1099), os.getenv('FTP_DEBUG','false'))
 
     # We set environment
     serviceRun.set_core(os.getenv('ENVIRONMENT', 'PRODUCTION'))
