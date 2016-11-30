@@ -103,9 +103,9 @@ class ServiceRun():
 
       self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'ftp.enabled\s*=.*', 'ftp.enabled=' + enable)
       self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'ftp.port\s*=.*', 'ftp.port=' + port)
-      self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'ftp.dataPortFrom\s*=.*', 'ftp.dataPortFrom=' + port_start)
-      self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'ftp.dataPortTo\s*=.*', 'ftp.dataPortTo=' + port_end)
-      self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'ftp.sessionDebug\s*=.*', 'ftp.sessionDebug=' + debug)
+      # self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'ftp.dataPortFrom\s*=.*', 'ftp.dataPortFrom=' + port_start)
+      # self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'ftp.dataPortTo\s*=.*', 'ftp.dataPortTo=' + port_end)
+      # self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'ftp.sessionDebug\s*=.*', 'ftp.sessionDebug=' + debug)
       
 
   def set_core(self, environment):
