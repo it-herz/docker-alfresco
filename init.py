@@ -92,6 +92,7 @@ class ServiceRun():
       self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'share.port\s*=.*', 'share.port=' + port)
       self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', 'share.protocol\s*=.*', 'share.protocol=' + protocol)
 
+
   def set_ftp(self, enable, port, port_start, port_end):
       global ALFRESCO_PATH
 
@@ -180,6 +181,8 @@ class ServiceRun():
           self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', '^#.cifs.hostannounce\s*=.*', 'cifs.hostannounce=true')
           self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', '^#.cifs.broadcast\s*=.*', 'cifs.broadcast=0.0.0.255')
           self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', '^#.cifs.ipv6.enabled\s*=.*', 'cifs.ipv6.enabled=false')
+          self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', '^#.alfresco.authentication.authenticateCIFS\s*=.*', 'alfresco.authentication.authenticateCIFS=true')
+          
       else:
           self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', '^#.cifs.enabled\s*=', '#cifs.enabled=')
           self.replace_all(ALFRESCO_PATH + '/tomcat/shared/classes/alfresco-global.properties', '^#.cifs.Server.Name\s*=', '#cifs.Server.Name=')

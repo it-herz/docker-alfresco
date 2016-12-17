@@ -1,4 +1,4 @@
-FROM webcenter/rancher-alfresco
+FROM itherz/rancher-alfresco
 
 ADD init.py /app/
 
